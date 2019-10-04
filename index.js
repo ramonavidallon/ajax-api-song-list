@@ -1,11 +1,11 @@
-$(function(){
+$(() => {
   // GET/READ SONGS //
-  $('#get-btn').on('click', function(){
+  $('#get-btn').on('click', () => {
     $.ajax({
       url: '/api/songs',
       method: 'GET',
       contentType: 'application/json',
-      success: function(response) {
+      success: (response) => {
         var tbodyEl = $('tbody');
         tbodyEl.html('');
         response.songs.forEach((songs) => {
@@ -25,7 +25,7 @@ $(function(){
   });
 
 
-  // CREATE/POST //
+  // CREATE/POST SONG //
   $('#create-form').on('submit', (event) => {
     event.preventDefault();
 
@@ -44,6 +44,44 @@ $(function(){
 
 
     });
+  });
+
+
+  // UPDATING/PUT SONG //
+  $('table').on('click', '.update-btn', () => {
+    var rowEl = $(this).closest('tr');
+    var id = rowEl.find('.id').text();
+    var updatedSong = rowEl.find('.name').val();
+
+    $.ajax({
+      url: '/api/songs/' + id,
+      method: 'PUT',
+      contentType: 'application/json',
+      data: JSON.stringify({updatedSong: updatedSong}),
+      success: (response) => {
+        console.log(response);
+        $('#get-btn').click();
+      }
+    });
+  });
+
+  // DELETE //
+  $('table').on('click', '.delete-btn', () => {
+    var rowEl = $(this).closest('tr');
+    var id = rowEl.find('.id').text();
+    
+    $.ajax({
+      url: '/api/songs/' + id,
+      method: 'DELETE',
+      contentType: 'application/json',
+      success: (response) => {
+        console.log(response);
+        $('#get-btn').click();
+      }
+    })
   })
+
+
+
 
 });
