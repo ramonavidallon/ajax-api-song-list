@@ -50,11 +50,11 @@ $(() => {
   // UPDATING/PUT SONG //
   $('table').on('click', '.update-btn', () => {
     var rowEl = $(this).closest('tr');
-    var id = rowEl.find('.id').text();
+    // var id = rowEl.find('.id').text();
     var updatedSong = rowEl.find('.name').val();
 
     $.ajax({
-      url: '/api/songs/' + id,
+      url: '/api/songs/:id',
       method: 'PUT',
       contentType: 'application/json',
       data: JSON.stringify({updatedSong: updatedSong}),
@@ -69,9 +69,9 @@ $(() => {
   $('table').on('click', '.delete-btn', () => {
     var rowEl = $(this).closest('tr');
     var id = rowEl.find('.id').text();
-    
+
     $.ajax({
-      url: '/api/songs/' + id,
+      url: '/api/songs/:id',
       method: 'DELETE',
       contentType: 'application/json',
       success: (response) => {
