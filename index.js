@@ -14,8 +14,8 @@ $(() => {
             <td class="id">' + songs.id + '</td>\
             <td><input type="text" class="name" value="' + songs.track + '"></td>\
             <td>\
-              <button class="update-btn">UPDATE/PUT</button>\
-              <button class="delete-btn">DELETE</button>\
+              <button class="waves-effect waves-light btn update-btn">UPDATE/PUT</button>\
+              <button class="waves-effect waves-light btn delete-btn">DELETE</button>\
             <td>\
             </tr>\
           ');
