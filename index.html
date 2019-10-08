@@ -19,8 +19,8 @@
     <div class="nav-wrapper">
       <a href="#" class="brand-logo center">musicorum</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/html/about.html">About</a></li>
+        <li><a href="/html/contact.html">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -30,11 +30,11 @@
 
     <div class="col-sm">
       <form id="create-form">
-        <input type="text" id="song-input" placeholder="Title">
-        <input type="text" id="artist-input" placeholder="Artist">
-        <input type="text" id="genre-input" placeholder="Genre">
+        <input type="text" class="input" id="song-input" placeholder="Title">
+        <input type="text" class="input"  id="artist-input" placeholder="Artist">
+        <input type="text" class="input" id="genre-input" placeholder="Genre">
         <button id="add-song" class="btn-floating btn-small waves-effect waves-light red">
-          <i class="material-icons">add</i>
+          <i class="material-icons">audiotrack</i>
         </button>
         <button class="waves-effect waves-light btn" type="button" id="get-btn">View Playlist</button>
       </form>
@@ -48,7 +48,7 @@
             <th>Title</th>
             <th>Artist</th>
             <th>Genre</th>
-            <th>Actions</th>
+            <th>Edit | Delete</th>
           </tr>
         </thead>
         <!-- <button class="btn" data-toggle="collapse" data-target="#demo">Collapsible</button>

@@ -18,7 +18,8 @@ $(() => {
             <td><input type="text" class="genre" value=" ' + songs.genre + '"></td>\
             <td>\
               <button class="waves-effect waves-light btn update-btn">edit</button>\
-              <button class="waves-effect waves-light btn delete-btn">delete</button>\
+              <button class="waves-effect waves-light btn delete-btn"><i class="material-icons">delete</i>\
+              </button>\
             </td>\
             </tr>\
           ');
@@ -42,11 +43,12 @@ $(() => {
       url: '/api/songs',
       method: 'POST',
       contentType: 'application/json',
-      data: JSON.stringify({track: songInput.val(), artist: artistInput.val() }),
+      data: JSON.stringify({track: songInput.val(), artist: artistInput.val(), genre: genreInput.val()}),
       success: (response) => {
         console.log(response);
         songInput.val('');
         artistInput.val('');
+        genreInput.val('')
         $('#get-btn').click();
       }
 
