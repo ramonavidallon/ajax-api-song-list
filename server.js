@@ -5,15 +5,25 @@ var bodyParser = require('body-parser');
 var songs = [
   {
     id: 1,
-    track: 'You Little Beauty'
+    track: 'You Little Beauty',
+    artist: 'Fisher',
+    genre: 'House'
   },
   {
     id: 2,
-    track: 'Generate'
+    track: 'Generate',
+    artist: 'Eric Prydz',
+    genre: 'Progressive House'
+  },
+  {
+    id: 3,
+    track: 'Deceiver',
+    artist: 'Chris Lake',
+    genre: 'Tech House'
   }
 ];
 
-var currentID = 2;
+var currentID = 3;
 
 var PORT = process.env.PORT || 3000;
 
@@ -33,11 +43,15 @@ app.get('/api/songs', (req, res) => {
 // POST REQUEST TO ADD A SONG TO THE PLAYLIST ARRAY //
 app.post('/api/songs/', (req, res) => {
   var songName = req.body.track;
+  var artistName = req.body.artist;
+  var genreName = req.body.genre;
   currentID++;
 
   songs.push({
     id: currentID,
-    track: songName
+    track: songName,
+    artist: artistName,
+    genre: genreName
   });
 
   res.send("Successfully added a track to playlist!");
@@ -74,7 +88,6 @@ app.delete('/api/songs/:id', (req, res) => {
 });
 
 
-
 app.listen(PORT, function(){
-  console.log('Server Listening on ' + PORT);
+  console.log('Server Listening on port: ' + PORT);
 });

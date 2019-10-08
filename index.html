@@ -5,12 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" type="text/css" href="/style.css">
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <title>Song List Application</title>
+  <title>musicorum</title>
 </head>
 
 <body>
@@ -18,9 +19,8 @@
     <div class="nav-wrapper">
       <a href="#" class="brand-logo center">musicorum</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <!-- <li><a href="sass.html">Log In</a></li> -->
-        <li><a href="badges.html">About</a></li>
-        <li><a href="collapsible.html">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -30,13 +30,13 @@
 
     <div class="col-sm">
       <form id="create-form">
-        <input type="text" id="create-input">
-        <button id="add-song" class="btn-floating btn-large waves-effect waves-light red">
-          <i class="material-icons">+</i>
+        <input type="text" id="song-input" placeholder="Title">
+        <input type="text" id="artist-input" placeholder="Artist">
+        <input type="text" id="genre-input" placeholder="Genre">
+        <button id="add-song" class="btn-floating btn-small waves-effect waves-light red">
+          <i class="material-icons">add</i>
         </button>
         <button class="waves-effect waves-light btn" type="button" id="get-btn">View Playlist</button>
-
-        <!-- <button id="add-song">Add Song</button> -->
       </form>
 
       <hr>
@@ -46,9 +46,16 @@
           <tr>
             <th>ID</th>
             <th>Title</th>
+            <th>Artist</th>
+            <th>Genre</th>
             <th>Actions</th>
           </tr>
         </thead>
+        <!-- <button class="btn" data-toggle="collapse" data-target="#demo">Collapsible</button>
+
+        <div id="demo" class="collapse">
+      Some text..
+        </div>   -->
 
         <tbody></tbody>
       </table>
@@ -61,11 +68,10 @@
 
 
 
-  <script src="index.js"></script>
+  <script src="../javascript/index.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
 </body>
 
 </html>

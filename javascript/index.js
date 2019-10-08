@@ -1,4 +1,5 @@
 $(() => {
+
   // GET/READ SONGS //
   $('#get-btn').on('click', () => {
     $.ajax({
@@ -13,10 +14,12 @@ $(() => {
           <tr>\
             <td class="id">' + songs.id + '</td>\
             <td><input type="text" class="name" value="' + songs.track + '"></td>\
+            <td><input type="text" class="artist" value=" ' + songs.artist + '"></td>\
+            <td><input type="text" class="genre" value=" ' + songs.genre + '"></td>\
             <td>\
-              <button class="waves-effect waves-light btn update-btn">UPDATE/PUT</button>\
-              <button class="waves-effect waves-light btn delete-btn">DELETE</button>\
-            <td>\
+              <button class="waves-effect waves-light btn update-btn">edit</button>\
+              <button class="waves-effect waves-light btn delete-btn">delete</button>\
+            </td>\
             </tr>\
           ');
         });
@@ -25,20 +28,25 @@ $(() => {
   });
 
 
+
+
   // CREATE/POST SONG //
   $('#create-form').on('submit', (event) => {
     event.preventDefault();
 
-    var createInput = $('#create-input');
+    var songInput = $('#song-input');
+    var artistInput = $('#artist-input');
+    var genreInput = $('#genre-input');
 
     $.ajax({
       url: '/api/songs',
       method: 'POST',
       contentType: 'application/json',
-      data: JSON.stringify({track: createInput.val() }),
+      data: JSON.stringify({track: songInput.val(), artist: artistInput.val() }),
       success: (response) => {
         console.log(response);
-        createInput.val('');
+        songInput.val('');
+        artistInput.val('');
         $('#get-btn').click();
       }
 
